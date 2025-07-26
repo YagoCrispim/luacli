@@ -1,0 +1,54 @@
+---@class LuaCLI : CLIContext
+---@field lua { desc: string, cb: fun(): nil }
+---@field test { desc: string, cb: fun(): nil }
+---@field love { desc: string, cb: fun(): nil }
+---@field join fun(self: LuaCLI, deps: string[]): string
+---@field read_file fun(self: LuaCLI, file_path: string): nil
+---@field install { desc: string, cb: fun(deps: table): nil }
+---@field exists fun(self: LuaCLI, path: string, type: 'file' | 'dir'): boolean
+--
+---@class DepsFile
+---@field dependencies table<string, string> | table<string, DepTable> | table<string, fun(params: DepsScriptFnParams): nil>
+---@field dev_dependencies table<string, string> | table<string, DepTable> | table<string, fun(params: DepsScriptFnParams): nil>
+---@field scripts table<string, DepsScript>
+--
+---@class DepTable
+---@field url string
+---@field src? string
+---@field branch? string
+---@field postInstall? fun(params: DepsScriptFnParams): nil
+--
+---@class DepsScript
+---@field desc string
+---@field cb fun(params: DepsScriptFnParams): nil
+--
+---@class DepsScriptFnParams
+---@field fs LuaCLI_FS
+---@field utils DepsScriptFnUtils
+--
+---@class DepsScriptFnUtils
+---@field add_deps_to_path fun(): nil
+---@field tern fun(cond: boolean, if_true: any, if_false: any): any
+--
+---@class CLIContext
+---@field checked_deps string[]
+---@field dep_folder_name string
+---@field config CLIConfig
+--
+---@class CLIConfig
+---@field dep_folder_name string
+--
+---@class ScriptCbFns
+---@field cli LuaCLI
+---@field fs LuaCLI_FS
+---@field utils table
+--
+---@alias PathSeparator '\' | '/'
+--
+---@class LuaCLI_FS
+---@field cwd string
+---@field separator PathSeparator
+---@field ls fun(path: string): string[]
+---@field join fun(paths: string[]): string
+---@field read_file fun(path: string): string | nil
+---@field exists fun(path: string, is_file?: boolean): boolean
