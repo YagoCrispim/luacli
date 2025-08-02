@@ -13,8 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Lua
-        uses: lua/lua-action@v1
+      - name: Install Lua
+        run: |
+          sudo apt-get update
+          sudo apt-get install lua5.4
 
       - name: Clone luabundler repository
         run: |
@@ -22,7 +24,7 @@ jobs:
           mv luabundler/bundler.lua ./bundler.lua
 
       - name: Run Lua script
-        run: lua5.4 bundle.lua
+        run: lua5.4 bundler.lua
 
       - name: Upload CLI to Releases
         uses: softprops/action-gh-release@v1
