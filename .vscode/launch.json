@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug CLI",
+      "type": "lua-local",
+      "request": "launch",
+      "program": {
+        "lua": "lua",
+        "file": "cli/cli.lua"
+      }
+    },
+    {
+      "name": "Debug bundle",
+      "type": "lua-local",
+      "request": "launch",
+      "program": {
+        "lua": "lua",
+        "file": "bundle.lua"
+      }
+    }
+  ]
+}
