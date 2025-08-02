@@ -4,24 +4,25 @@ require 'cli.globals'
 local fs = require 'cli.fs'
 local utils = require 'cli.utils'
 
-local deps_file_template = [[---@class DepsFile
-return {
-  scripts = {
-    test = {
-      desc = 'Run project tests',
-      cb = function(add_dependencies_to_path)
-        -- Optional call
-        -- add_dependencies_to_path()
-        error('Not implemented.')
-      end
-    },
-  },
-  dependencies = {
-    -- example
-    -- utils = 'git@github.com:YagoCrispim/lua_utils.git'
-  },
-  dev_dependencies = {}
-}]]
+local deps_file_template =
+    "---@class DepsFile" .. "\n" ..
+    "return {" .. '\n' ..
+    "  scripts = {" .. '\n' ..
+    "    test = {" .. '\n' ..
+    "      desc = 'Run project tests'," .. '\n' ..
+    "      cb = function(add_dependencies_to_path)" .. '\n' ..
+    "        -- Optional call" .. '\n' ..
+    "        -- add_dependencies_to_path()" .. '\n' ..
+    "        error('Not implemented.')" .. '\n' ..
+    "      end" .. '\n' ..
+    "    }," .. '\n' ..
+    "  }," .. '\n' ..
+    "  dependencies = {" .. '\n' ..
+    "    -- example" .. '\n' ..
+    "    -- utils = 'git@github.com:YagoCrispim/lua_utils.git'" .. '\n' ..
+    "  }," .. '\n' ..
+    "  dev_dependencies = {}" .. '\n' ..
+    "}"
 
 -- forward declaration
 local add_deps_to_path
