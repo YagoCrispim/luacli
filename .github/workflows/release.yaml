@@ -26,9 +26,17 @@ jobs:
       - name: Run Lua script
         run: lua5.4 bundle.lua
 
+      - name: Create a new tag
+        id: tag
+        run: |
+          TAG_NAME="v1.0.0"  # Change this to your desired versioning scheme
+          git tag $TAG_NAME
+          git push origin $TAG_NAME
+
       - name: Upload CLI to Releases
         uses: softprops/action-gh-release@v1
         with:
           files: ./cli.lua
+          tag: ${{ steps.tag.outputs.TAG_NAME }} # Use the created tag
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
