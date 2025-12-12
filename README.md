@@ -99,7 +99,6 @@ return {
     },
   },
   dev_dependencies = {
-    moontest = 'https://github.com/YagoCrispim/moontest.git',
     luabundler = {
       -- Lua bundle project main directory
       src = 'luabundler',
