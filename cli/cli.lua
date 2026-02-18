@@ -1,5 +1,6 @@
 -- ALWAYS ON TOP
 require 'cli.globals'
+require 'cli.types'
 --
 local fs = require 'cli.fs'
 local utils = require 'cli.utils'
