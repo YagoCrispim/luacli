@@ -184,7 +184,7 @@ instal_dependency = function(name, dep, install_path)
   ---@return `T` | nil
   local function eval_script(content)
     ---@diagnostic disable-next-line: undefined-global, deprecated
-    local eval = utils.tern(_VERSION == 'Lua 5.4', load, loadstring)
+    local eval = utils.tern(_VERSION == 'Lua 5.4' or _VERSION == 'Lua 5.5', load, loadstring)
 
     if content and content ~= "" then
       local func, _ = eval(content)
