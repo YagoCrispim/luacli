@@ -254,7 +254,7 @@ end
 
 local original_add_deps_to_path = utils.add_deps_to_path
 add_deps_to_path = function()
-  original_add_deps_to_path(cli, fs)
+  original_add_deps_to_path()
 end
 utils.add_deps_to_path = add_deps_to_path
 
